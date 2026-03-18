@@ -3,10 +3,12 @@ const app = express()
 const port = 3000
 const errorsHandlerMiddleware = require("./middlewares/errorsHandler")
 const notFoundMiddleware = require("./middlewares/notFound")
+const moviesRouter = require("./routers/moviesRouter")
 
 app.use(express.static("public/movies_cover/"))
 app.use(express.json())
 
+app.use("/api/movies", moviesRouter)
 app.get("/", (req, res) => {
     res.send("Rotta chiamata")
 })
