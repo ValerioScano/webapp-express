@@ -16,7 +16,7 @@ function index(req, res) {
 function show(req, res) {
     const id = req.params.id
     const sqlQueryMovies = "SELECT * FROM movies WHERE id=?"
-    const sqlQueryReviews = "SELECT reviews.name, reviews.vote, reviews.text FROM reviews WHERE movie_id=?"
+    const sqlQueryReviews = "SELECT reviews.id, reviews.name, reviews.vote, reviews.text FROM reviews WHERE movie_id=?"
 
     db.query(sqlQueryMovies, [id], (err, movies) => {
         if (err) {
